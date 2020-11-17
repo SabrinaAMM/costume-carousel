@@ -7,3 +7,6 @@
   <li>Category: <%= @costume.category %></li>
   <li>Description: <%= @costume.description %></li>
 </ul>
+
+<%= link_to "Show all", costumes_path %> -
+<%= link_to "Delete", costume_path(@costume), method: :delete, data: { confirm: "Are you sure?" } %>

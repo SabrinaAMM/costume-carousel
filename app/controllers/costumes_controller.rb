@@ -4,7 +4,7 @@ class CostumesController < ApplicationController
   end
 
   def show
-    @costume = Costume.find(params[:id])
+    find_costume
   end
 
   def new
@@ -18,9 +18,19 @@ class CostumesController < ApplicationController
     redirect_to costume_path(@costume)
   end
 
+  def destroy
+    find_costume
+    @costume.destroy
+    redirect_to costumes_path
+  end
+
   private
 
   def costume_params
     params.require(:costume).permit(:name, :size, :price_per_day, :category, :description)
+  end
+
+  def find_costume
+    @costume = Costume.find(params[:id])
   end
 end

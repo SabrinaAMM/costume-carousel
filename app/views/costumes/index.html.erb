@@ -8,7 +8,8 @@
       Price per day: <%= costume.price_per_day %> |
       Category: <%= costume.category %> |
       Description: <%= costume.description %> |
-      <%= link_to "Show", costume_path(costume) %>
+      <%= link_to "Show", costume_path(costume) %> -
+      <%= link_to "Delete", costume_path(costume), method: :delete, data: { confirm: "Are you sure?" } %>
     </li>
   <% end %>
 </ul>
