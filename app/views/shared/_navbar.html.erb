@@ -2,5 +2,7 @@
 <%= link_to "See all costumes", costumes_path %> ||
 <%= link_to "Dashboard", dashboard_index_path %> ||
 <%= link_to "Create costume", new_costume_path %> ||
+<%= current_user&.email %> ||
+Lender: <%= current_user&.lender %> ||
 Login/Logout Avatar
 

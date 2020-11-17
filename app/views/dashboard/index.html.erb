@@ -9,16 +9,30 @@
       Start date: <%= booking.start_date %> |
       End date: <%= booking.end_date %> |
       Status: <%= booking.status %>
-      <% if !@user.lender %>
-        <%= link_to "Delete booking", booking_path(booking), method: :delete, data: { confirm: "Are you sure?"} %>
-      <% else %>
-        <%= link_to "Accept/ reject booking", edit_costume_booking_path(booking.costume, booking) %>
-      <% end %>
+      <%= link_to "Delete booking", booking_path(booking), method: :delete, data: { confirm: "Are you sure?"} %>
     </li>
   <% end %>
 </ul>
 
+
+<!-- case 1 lender false = delete booking
+case 2 lender true & not my costume = delete booking
+case 3 lender true & my costume = edit booking -->
+
 <% if @user.lender %>
+  <!-- <h2>Received bookings</h2>
+  <ul>
+    <% @bookings.each do |booking| %>
+      <li>
+        Costume: <%= link_to booking.costume.name, costume_path(booking.costume)%> |
+        Start date: <%= booking.start_date %> |
+        End date: <%= booking.end_date %> |
+        Status: <%= booking.status %>
+        <%= link_to "Accept/ reject booking", edit_costume_booking_path(booking.costume, booking) %>
+      </li>
+    <% end %>
+  </ul> -->
+
   <h2>My costumes</h2>
 
   <ul>
