@@ -8,5 +8,5 @@
   <li>Description: <%= @costume.description %></li>
 </ul>
 
-<%= link_to "Show all", costumes_path %> -
-<%= link_to "Delete", costume_path(@costume), method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to "See all costumes", costumes_path %> -
+<%= link_to "Delete costume", costume_path(@costume), method: :delete, data: { confirm: "Are you sure?" } %>
