@@ -1,0 +1,10 @@
+<h1>Create a new costume</h1>
+
+<%= simple_form_for [@costume] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :size %>
+  <%= f.input :price_per_day%>
+  <%= f.input :category %>
+  <%= f.input :description %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
