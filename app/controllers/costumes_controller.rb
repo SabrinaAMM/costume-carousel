@@ -18,7 +18,8 @@ class CostumesController < ApplicationController
     @costume = Costume.new(costume_params)
     @costume.user = current_user
     if @costume.save
-      @costume.user.lender = true
+      current_user.lender = true
+      current_user.save
       redirect_to costume_path(@costume)
     else
       render :new
