@@ -1,0 +1,5 @@
+<h3>Change Booking Status</h3>
+<%= simple_form_for [@costume, @booking] do |f| %>
+  <%= f.input :status, :collection => %w[Confirmed Rejected] %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
