@@ -17,8 +17,12 @@ class CostumesController < ApplicationController
   def create
     @costume = Costume.new(costume_params)
     @costume.user = current_user
-    @costume.save
-    redirect_to costume_path(@costume)
+    if @costume.save
+      @costume.user.lender = true
+      redirect_to costume_path(@costume)
+    else
+      render :new
+    end
   end
 
   def destroy
