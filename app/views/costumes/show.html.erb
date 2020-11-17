@@ -1,0 +1,12 @@
+<h1>Show for <%= @costume.name %> </h1>
+
+<ul>
+  <li>Name: <%= @costume.name %></li>
+  <li>Size: <%= @costume.size %></li>
+  <li>Price per day: <%= @costume.price_per_day %></li>
+  <li>Category: <%= @costume.category %></li>
+  <li>Description: <%= @costume.description %></li>
+</ul>
+
+<%= link_to "See all costumes", costumes_path %> -
+<%= link_to "Delete costume", costume_path(@costume), method: :delete, data: { confirm: "Are you sure?" } %>

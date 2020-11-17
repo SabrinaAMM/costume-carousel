@@ -1,0 +1,17 @@
+<h1>All costumes</h1>
+
+<ul>
+  <% @costumes.each do |costume| %>
+    <li>
+      Name: <%= costume.name %> |
+      Size: <%= costume.size %> |
+      Price per day: <%= costume.price_per_day %> |
+      Category: <%= costume.category %> |
+      Description: <%= costume.description %> |
+      <%= link_to "Show", costume_path(costume) %> -
+      <%= link_to "Delete", costume_path(costume), method: :delete, data: { confirm: "Are you sure?" } %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Create costume", new_costume_path %>
