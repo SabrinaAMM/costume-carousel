@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   def new
+    find_costume
     @booking = Booking.new
   end
 
