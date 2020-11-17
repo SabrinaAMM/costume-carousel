@@ -4,6 +4,8 @@
 <ul>
   <% @costumes.each do |costume| %>
     <li>
+      <%= cl_image_tag costume.photo.key, height: 300, width: 400, crop: :fill %>
+      <!-- implement image as background + placeholder -->
       Name: <%= costume.name %> |
       Size: <%= costume.size %> |
       Price per day: <%= costume.price_per_day %> |
