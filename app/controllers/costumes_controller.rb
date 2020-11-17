@@ -7,6 +7,7 @@ class CostumesController < ApplicationController
 
   def show
     find_costume
+    @user = current_user
   end
 
   def new
@@ -23,7 +24,7 @@ class CostumesController < ApplicationController
   def destroy
     find_costume
     @costume.destroy
-    redirect_to costumes_path
+    redirect_to dashboard_index_path
   end
 
   private
