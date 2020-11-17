@@ -1,6 +1,12 @@
 <%= render "shared/navbar" %>
 <h1>Show for <%= @costume.name %> </h1>
 
+<% if @costume.photo.attached? %>
+  <%= cl_image_tag @costume.photo.key, height: 300, width: 400, crop: :fill %>
+<% else %>
+  <h2>add Placeholder</h2>
+<% end %>
+
 <ul>
   <li>Name: <%= @costume.name %></li>
   <li>Size: <%= @costume.size %></li>
