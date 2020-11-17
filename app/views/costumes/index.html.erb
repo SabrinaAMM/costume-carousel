@@ -1,0 +1,13 @@
+<h1>All costumes</h1>
+
+<ul>
+  <% @costumes.each do |costume| %>
+    <li>
+      Name: <%= costume.name %> |
+      Size: <%= costume.size %> |
+      Price per day: <%= costume.price_per_day %> |
+      Category: <%= costume.category %> |
+      Description: <%= costume.description %> |
+    </li>
+  <% end %>
+</ul>
