@@ -18,6 +18,7 @@ class BookingsController < ApplicationController
 
   def edit
     find_costume
+    authorize @costume
     find_booking
   end
 
@@ -32,6 +33,7 @@ class BookingsController < ApplicationController
 
   def destroy
     find_booking
+    authorize @booking
     @booking.destroy
     redirect_to dashboard_index_path
   end
