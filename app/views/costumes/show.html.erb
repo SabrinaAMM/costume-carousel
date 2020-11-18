@@ -15,6 +15,6 @@
   <li>Description: <%= @costume.description %></li>
 </ul>
 
-<% if !@costume.user == @user %>
+<% if @costume.user != @user %>
   <%= link_to "Book costume", new_costume_booking_path(@costume) %>
 <% end %>
