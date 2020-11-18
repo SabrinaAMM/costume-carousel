@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+
+
 # Create users:
 rentee = User.create!(email: "rentee@example.com", password: "123456", lender: false)
 lender = User.create!(email: "lender@example.com", password: "123456", lender: true)
@@ -26,3 +29,4 @@ costume4.photo.attach(io: File.open(Rails.root.join('app','assets','images','uni
 #Create bookings:
 Booking.create!(user: rentee, costume: costume1)
 Booking.create!(user: rentee, costume: costume2)
+
