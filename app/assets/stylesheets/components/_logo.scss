@@ -1,0 +1,23 @@
+.logo {
+  height: 40px;
+  overflow: hidden;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  transition: transform 300ms;
+}
+
+
+.logo .logo__text {
+  transition: transform 300ms;
+}
+
+.logo:hover img, .logo:hover .logo__text {
+  transform: translateY(-40px);
+}
+
+.logo__text {
+  font-family: 'Poppins', sans-serif;
+}
