@@ -1,20 +1,33 @@
 <%= render "shared/navbar" %>
-<h1>Show for <%= @costume.name %> </h1>
 
-<% if @costume.photo.attached? %>
-  <%= cl_image_tag @costume.photo.key, height: 300, width: 400, crop: :fill %>
-<% else %>
-  <h2>add Placeholder</h2>
-<% end %>
+<div class="container">
+  <div class="row justify-content-between">
 
-<ul>
-  <li>Name: <%= @costume.name %></li>
-  <li>Size: <%= @costume.size %></li>
-  <li>Price per day: <%= @costume.price_per_day %></li>
-  <li>Category: <%= @costume.category %></li>
-  <li>Description: <%= @costume.description %></li>
-</ul>
+    <div class="col-5">
+      <% if @costume.photo.attached? %>
+        <div class="show-image" style="background-image: url(<%= cl_image_path @costume.photo.key %>)">
+        </div>
+      <% else %>
+        <h2>add Placeholder</h2>
+      <% end %>
+    </div>
 
-<% if @costume.user != @user %>
-  <%= link_to "Book costume", new_costume_booking_path(@costume) %>
-<% end %>
+    <div class="col-5">
+      <h1><%= @costume.name %> </h1>
+      <hr>
+
+      <ul>
+        <li>Costume name: <%= @costume.name %></li>
+        <li>Size: <%= @costume.size %></li>
+        <li>Price per day: <%= @costume.price_per_day %> €</li>
+        <li>Category: <%= @costume.category %></li>
+        <li>Description: <%= @costume.description %></li>
+      </ul>
+
+      <% if @costume.user != @user %>
+        <%= link_to "Book costume", new_costume_booking_path(@costume), class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
+  </div>
+</div>
