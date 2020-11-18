@@ -1,17 +1,23 @@
 <%= render "shared/navbar" %>
-<h1>All costumes</h1>
 
-<ul>
-  <% @costumes.each do |costume| %>
-    <li>
-      Name: <%= costume.name %> |
-      Size: <%= costume.size %> |
-      Price per day: <%= costume.price_per_day %> |
-      Category: <%= costume.category %> |
-      Description: <%= costume.description %> |
-      <%= link_to "Show", costume_path(costume) %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <h1>All costumes</h1>
 
-<%= link_to "Create costume", new_costume_path %>
+  <div class="row">
+    <% @costumes.each do |costume| %>
+      <% if costume.photo.attached? %>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+          <div class="my-card-background" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= cl_image_path costume.photo.key %>)">
+            <%= link_to costume.name, costume_path(costume), class: "my-card" %>
+          </div>
+        </div>
+      <% else %>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+          <div class="my-card-background" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4))">
+            <%= link_to costume.name, costume_path(costume), class: "my-card" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
