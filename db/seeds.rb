@@ -25,8 +25,3 @@ costume3.photo.attach(io: File.open(Rails.root.join('app','assets','images','ast
 
 costume4 = Costume.create!(name: "Dog Unicorn", size: "S", price_per_day: 12.00, category: "Pet", description: "Turn your dog into a unicorn and be happy :)!", user: lender)
 costume4.photo.attach(io: File.open(Rails.root.join('app','assets','images','unicorn.jpeg')), filename: 'unicorn.jpeg', content_type: 'image/jpeg')
-
-#Create bookings:
-Booking.create!(user: rentee, costume: costume1)
-Booking.create!(user: rentee, costume: costume2)
-
