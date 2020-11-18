@@ -1,12 +1,29 @@
 .navbar-lewagon {
+  display: flex;
   justify-content: space-between;
+  align-items: center;
   background: white;
+  padding: 12px;
+  box-shadow: 0px 0px 8px rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0px;
+  z-index: 100;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.my-navbar-action {
+  text-decoration: none;
+  color: rgba(0,0,0,0.5);
+
+  &:hover {
+    text-decoration: none;
+    color: rgba(0,0,0,1);
+  }
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
+// .navbar-lewagon .navbar-collapse {
+//   flex-grow: 0;
+// }
+
+// .navbar-lewagon .navbar-brand img {
+//   width: 40px;
+// }
