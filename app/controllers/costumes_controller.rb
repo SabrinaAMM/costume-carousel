@@ -27,6 +27,7 @@ class CostumesController < ApplicationController
     if @costume.save
       current_user.lender = true
       current_user.save
+      flash.notice = "Costume created!"
       redirect_to costume_path(@costume)
     else
       render :new
@@ -37,6 +38,7 @@ class CostumesController < ApplicationController
     find_costume
     authorize @costume
     @costume.destroy
+    flash.notice = "Costume deleted!"
     redirect_to dashboard_index_path
   end
 
