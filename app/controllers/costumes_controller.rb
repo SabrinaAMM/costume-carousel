@@ -2,11 +2,14 @@ class CostumesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-     @costumes = policy_scope(Costume)
+    @costumes = policy_scope(Costume)
     if params[:query].present?
       sql_query = "name ILIKE :query OR description ILIKE :query"
-      @costumes = Costume.where(sql_query, query: "%#{params[:query]}%"
+      @costumes = Costume.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @costumes = Costume.all
     end
+
     @markers = @costumes.geocoded.map do |costume|
       {
         lat: costume.latitude,
