@@ -5,7 +5,13 @@ class CostumesController < ApplicationController
      @costumes = policy_scope(Costume)
     if params[:query].present?
       sql_query = "name ILIKE :query OR description ILIKE :query"
-      @costumes = Costume.where(sql_query, query: "%#{params[:query]}%")
+      @costumes = Costume.where(sql_query, query: "%#{params[:query]}%"
+    end
+    @markers = @costumes.geocoded.map do |costume|
+      {
+        lat: costume.latitude,
+        lng: costume.longitude
+      }
     end
   end
 

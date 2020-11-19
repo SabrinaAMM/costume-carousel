@@ -1,23 +1,26 @@
 <%= render "shared/navbar" %>
+<h1 style="margin-left: 16px;">All costumes</h1>
+<div class="content" id="cardsmap">
 
-<div class="container">
-  <h1>All costumes</h1>
 
-  <div class="row">
+  <div id="cardsleft">
     <% @costumes.each do |costume| %>
       <% if costume.photo.attached? %>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
           <div class="my-card-background" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= cl_image_path costume.photo.key %>)">
             <%= link_to costume.name, costume_path(costume), class: "my-card" %>
           </div>
-        </div>
       <% else %>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
           <div class="my-card-background" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4))">
             <%= link_to costume.name, costume_path(costume), class: "my-card" %>
           </div>
-        </div>
       <% end %>
     <% end %>
   </div>
+
+  <div id="map"
+     style="width: 500px; height: 600px; margin-top: 16px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
 </div>

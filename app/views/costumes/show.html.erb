@@ -17,12 +17,14 @@
         <h2><%= @costume.name %> </h2>
         <hr>
 
-        <ul>
-          <li>Size: <%= @costume.size %></li>
-          <li>Price per day: <%= @costume.price_per_day %> €</li>
-          <li>Category: <%= @costume.category %></li>
-          <li>Description: <%= @costume.description %></li>
-        </ul>
+      <ul>
+        <li>Costume name: <%= @costume.name %></li>
+        <li>Size: <%= @costume.size %></li>
+        <li>Price per day: <%= @costume.price_per_day %> €</li>
+        <li>Category: <%= @costume.category %></li>
+        <li>Description: <%= @costume.description %></li>
+        <li>Address: <%= @costume.address %></li>
+      </ul>
 
         <% if @costume.user != @user %>
           <br>
