@@ -1,10 +1,4 @@
 class BookingsController < ApplicationController
-  def new
-    find_costume
-    @booking = Booking.new
-    authorize @booking
-  end
-
   def create
     find_costume
     @booking = Booking.new(booking_params)

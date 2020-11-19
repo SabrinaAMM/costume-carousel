@@ -7,6 +7,7 @@ class CostumesController < ApplicationController
 
   def show
     find_costume
+    @booking = Booking.new
     authorize @costume
     @user = current_user
   end
