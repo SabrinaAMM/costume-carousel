@@ -1,12 +1,19 @@
 class CostumePolicy < ApplicationPolicy
-  # no policies created for index and show methods,
-  # as they don't require authentication
+  def show?
+    true
+  end
 
   def create?
-    return true
+    true
   end
 
   def destroy?
     record.user == user
+  end
+
+  class Scope < Scope
+    def resolve
+      scope.all
+    end
   end
 end

@@ -2,11 +2,12 @@ class CostumesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @costumes = Costume.all
+    @costumes = policy_scope(Costume)
   end
 
   def show
     find_costume
+    authorize @costume
     @user = current_user
   end
 
@@ -17,7 +18,7 @@ class CostumesController < ApplicationController
 
   def create
     @costume = Costume.new(costume_params)
-    autorize @costume
+    authorize @costume
     @costume.user = current_user
     if @costume.save
       current_user.lender = true

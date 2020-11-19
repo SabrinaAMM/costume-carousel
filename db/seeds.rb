@@ -12,6 +12,7 @@
 # Create users:
 rentee = User.create!(email: "rentee@example.com", password: "123456", lender: false)
 lender = User.create!(email: "lender@example.com", password: "123456", lender: true)
+lender2 = User.create!(email: "lender2@example.com", password: "123456", lender: true)
 
 # Create costumes:
 costume1 = Costume.create!(name: "Magician", size: "S", price_per_day: 10.00, category: "Kids", description: "Great magician costume for kids!", user: lender)
@@ -23,5 +24,5 @@ costume2.photo.attach(io: File.open(Rails.root.join('app','assets','images','pik
 costume3 = Costume.create!(name: "Astronaut", size: "M", price_per_day: 20.00, category: "Space", description: "Cool astronaut suit, including helmet!", user: lender)
 costume3.photo.attach(io: File.open(Rails.root.join('app','assets','images','astronaut.jpeg')), filename: 'astronaut.jpeg', content_type: 'image/jpeg')
 
-costume4 = Costume.create!(name: "Dog Unicorn", size: "S", price_per_day: 12.00, category: "Pet", description: "Turn your dog into a unicorn and be happy :)!", user: lender)
+costume4 = Costume.create!(name: "Dog Unicorn", size: "S", price_per_day: 12.00, category: "Pet", description: "Turn your dog into a unicorn and be happy :)!", user: lender2)
 costume4.photo.attach(io: File.open(Rails.root.join('app','assets','images','unicorn.jpeg')), filename: 'unicorn.jpeg', content_type: 'image/jpeg')
