@@ -36,7 +36,7 @@ class BookingsController < ApplicationController
     redirect_to dashboard_index_path
   end
 
-  def accept  
+  def accept
     @booking = Booking.find(params[:booking_id])
     @booking.status = "confirmed"
     @booking.save
