@@ -8,6 +8,8 @@
   position: sticky;
   top: 0px;
   z-index: 100;
+ 
+
 }
 
 .my-navbar-action {
@@ -19,6 +21,21 @@
     color: rgba(0,0,0,1);
   }
 }
+
+.nav-left
+{
+  display: flex;
+   justify-content: space-between;
+  
+}
+
+.search {
+   display: flex;
+   justify-content: space-between;
+   width: 200px;
+   margin: 0px 30px;
+}
+
 
 // .navbar-lewagon .navbar-collapse {
 //   flex-grow: 0;

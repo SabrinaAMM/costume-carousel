@@ -2,7 +2,11 @@ class CostumesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @costumes = policy_scope(Costume)
+     @costumes = policy_scope(Costume)
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR description ILIKE :query"
+      @costumes = Costume.where(sql_query, query: "%#{params[:query]}%")
+    end
   end
 
   def show
@@ -24,6 +28,7 @@ class CostumesController < ApplicationController
     if @costume.save
       current_user.lender = true
       current_user.save
+      flash.notice = "Costume created!"
       redirect_to costume_path(@costume)
     else
       render :new
@@ -34,6 +39,7 @@ class CostumesController < ApplicationController
     find_costume
     authorize @costume
     @costume.destroy
+    flash.notice = "Costume deleted!"
     redirect_to dashboard_index_path
   end
 
