@@ -38,3 +38,18 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
 })
+
+});
+
+//makes flash notices disappear after 3 seconds 
+
+$(function(){
+  var flashDurationInSeconds = 3;
+  var flashContainerId = 'flash-messages';
+
+  function removeFlashMessages() {
+    $('#' + flashContainerId).remove();
+  }
+
+  setTimeout(removeFlashMessages, flashDurationInSeconds * 1000);
+})

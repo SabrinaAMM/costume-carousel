@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CostumeCarousel</title>
+    <title>Costume Carousel</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,6 +12,13 @@
   </head>
 
   <body>
+  <div id="flash-messages">
+      <% flash.each do |type, msg| %>
+      <div class="alert alert-info">
+        <%= msg %>
+      </div>
+    <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
