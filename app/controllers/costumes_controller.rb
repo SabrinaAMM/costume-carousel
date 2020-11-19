@@ -2,7 +2,12 @@ class CostumesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @costumes = Costume.all
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR description ILIKE :query"
+      @costumes = Costume.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @costumes = Costume.all
+    end
   end
 
   def show
