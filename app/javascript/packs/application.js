@@ -39,9 +39,8 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
 })
 
-});
 
-//makes flash notices disappear after 3 seconds 
+//makes flash notices disappear after 3 seconds
 
 $(function(){
   var flashDurationInSeconds = 3;
