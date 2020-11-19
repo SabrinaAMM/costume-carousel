@@ -2,7 +2,7 @@ class CostumesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @costumes = Costume.all
+    @costumes = policy_scope(Costume)
   end
 
   def show
@@ -28,6 +28,7 @@ class CostumesController < ApplicationController
 
   def destroy
     find_costume
+    authorize @costume
     @costume.destroy
     redirect_to dashboard_index_path
   end
