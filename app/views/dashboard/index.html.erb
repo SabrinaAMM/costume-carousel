@@ -1,45 +1,41 @@
 <%= render "shared/navbar" %>
+
 <div class="dashboard-container" >
   <h1>Dashboard</h1>
-  <% if @user.lender == false  %>
-    <div class="card">
-      <h2>My Bookings</h2>
-        <% if @user.bookings.empty? %>
-        <p> You don't have any bookings. :(  <%= link_to "Have a look at our costumes!", costumes_path %> </p>
-        <% end %>
-      <ul>
-        <% @user.bookings.each do |booking| %>
-          <div class="card">
-            <li>
-              <div class="grid-item">
-                <strong>Name:</strong>  <%= link_to booking.costume.name, costume_path(booking.costume)%> |
-                <strong>Start date:</strong>  <%= booking.start_date %> |
-                <strong>End date:</strong>  <%= booking.end_date %> |
-                <strong>Status:</strong>  <%= booking.status %> 
-              </div>
-              <div class="item"></div>
-              <div class="grid-item">
-                <button type="button" class="btn btn-danger"> <%= link_to "Cancel", booking_path(booking), method: :delete, data: { confirm: "Are you sure?"} %></button>
-              </div>
-            </li>
-          </div>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
- <!-- case 1 lender false = delete booking
-  case 2 lender true & not my costume = delete booking
- case 3 lender true & my costume = edit booking -->
+  <div class="card">
+    <h2>My Bookings</h2>
+      <% if @user.bookings.empty? %>
+      <p> You don't have any bookings. :(  <%= link_to "Have a look at our costumes!", costumes_path %> </p>
+      <% end %>
+    <ul>
+      <% @user.bookings.each do |booking| %>
+        <div class="card">
+          <li>
+            <div class="grid-item">
+              <strong>Name:</strong>  <%= link_to booking.costume.name, costume_path(booking.costume)%> |
+              <strong>Start date:</strong>  <%= booking.start_date %> |
+              <strong>End date:</strong>  <%= booking.end_date %> |
+              <strong>Status:</strong>  <%= booking.status %>
+            </div>
+            <div class="item"></div>
+            <div class="grid-item">
+              <button type="button" class="btn btn-danger"> <%= link_to "Cancel", booking_path(booking), method: :delete, data: { confirm: "Are you sure?"} %></button>
+            </div>
+          </li>
+        </div>
+      <% end %>
+    </ul>
+  </div>
 
   <% if @user.lender %>
     <div class="card">
       <h2>Received Bookings</h2>
-        <% if @user.bookings.empty? %>
-          <p> You don't have any bookings. :( </p>
+        <% if @received_bookings.empty? %>
+          <p> You have not received any bookings. :( </p>
         <% end %>
         <ul>
-          <% @user.bookings.each do |booking| %>
+          <% @received_bookings.each do |booking| %>
             <div class="card">
               <li>
                 <div class="grid-item">
@@ -47,7 +43,7 @@
                   <strong> Start date:</strong> <%= booking.start_date %> |
                   <strong> End date:</strong> <%= booking.end_date %> |
                   <strong> Status:</strong> <%= booking.status %>
-                </div>    
+                </div>
                 <div class="item"></div>
                 <% if booking.status == "pending"%>
                   <div class="grid-item">
@@ -56,10 +52,11 @@
                   </div>
                 <% end %>
               </li>
-           </div> 
+           </div>
          <% end %>
-       </ul> 
+       </ul>
     </div>
+
     <div class="card">
       <h2>My Costumes</h2>
       <ul>
@@ -71,20 +68,20 @@
                 <strong>Name:</strong> <%= costume.name %> |
                 <strong>Size:</strong> <%= costume.size %> |
                 <strong>Price per day:</strong> <%= costume.price_per_day %> € |
-                <strong>Category:</strong> <%= costume.category %>  
+                <strong>Category:</strong> <%= costume.category %>
                 <br>
-                <strong>Description:</strong> <%= costume.description %> 
+                <strong>Description:</strong> <%= costume.description %>
              </div>
-             <div class="item"></div>       
+             <div class="item"></div>
              <div class="grid-item">
                <button type="button" class="btn btn-light" > <%= link_to "Show", costume_path(costume) %></button>
                <button type="button" class="btn btn-danger"><%= link_to "Delete", costume_path(costume), method: :delete, data: { confirm: "Are you sure?" } %></button>
              </div>
             </li>
-          </div> 
+          </div>
         <% end %>
      </ul>
     </div>
   <% end %>
 </div>
- 
+
