@@ -1,9 +1,9 @@
 class BookingPolicy < ApplicationPolicy
   def create?
-    return true
+    true
   end
 
-  def edit?
+  def update?
     record.costume.user == user
   end
 
@@ -11,9 +11,11 @@ class BookingPolicy < ApplicationPolicy
     record.user == user
   end
 
-  class Scope < Scope
-    def resolve
-      scope.all
-    end
+  def accept?
+    record.costume.user == user
+  end
+
+  def reject?
+    record.costume.user == user
   end
 end

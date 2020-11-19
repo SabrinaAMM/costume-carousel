@@ -7,15 +7,18 @@ class CostumesController < ApplicationController
 
   def show
     find_costume
+    authorize @costume
     @user = current_user
   end
 
   def new
     @costume = Costume.new
+    authorize @costume
   end
 
   def create
     @costume = Costume.new(costume_params)
+    authorize @costume
     @costume.user = current_user
     if @costume.save
       current_user.lender = true

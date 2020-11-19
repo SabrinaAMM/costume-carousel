@@ -1,11 +1,10 @@
 class CostumePolicy < ApplicationPolicy
-
-  def create?
-    return true
+  def show?
+    true
   end
 
-  def show?
-    return true
+  def create?
+    true
   end
 
   def destroy?
