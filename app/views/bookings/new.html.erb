@@ -4,8 +4,8 @@
     <div class="col-6 col-md-6 col-lg-4">
       <h2 class="text-center pb-5 m-0">Add a new Booking</h2>
       <%= simple_form_for [@costume, @booking] do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
+        <%= f.input :start_date %> 
+        <%= f.input :end_date %> 
         <%= f.button :submit, class: "btn btn-primary" %>
       <% end %>
       <br>
