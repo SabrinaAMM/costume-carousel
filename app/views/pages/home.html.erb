@@ -1,5 +1,16 @@
-Login
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= link_to "See all costumes", costumes_path %>
-
+<div class="home-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= cl_image_path 'v1605714307/Vader_oxokbz.jpg' %>)">
+  <div class="container">
+    <div class="logo mb-5" class="mb-5">
+      <%= cl_image_tag('v1605714662/logo_nau1de.png') %>
+      <!-- <img class="logo_image " src= "<%= asset_path('logo.png') %>"> -->
+      <div class="logo__text">Login</div>
+    </div>
+      <div id="Text" class="mb-5" >
+        <h1>Be the star of the next party!</h1>
+        <p>Find the perfect costume</p>
+      </div>
+      <div>
+        <%= link_to "See costumes", costumes_path, class: "btn btn-gradient" %>
+      </div>
+  </div>
+</div>
