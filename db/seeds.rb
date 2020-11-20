@@ -45,4 +45,35 @@ costume11.photo.attach(io: File.open(Rails.root.join('app','assets','images','sp
 costume12 = Costume.create!(name: "Witch Hat", size: "M", price_per_day: 5.00, category: "Fantasy", description: "Just a witch hat, nothing more, nothing less :)!", user: lender, address: "U Slatin, Praha")
 costume12.photo.attach(io: File.open(Rails.root.join('app','assets','images','witchhat.jpeg')), filename: 'witchhat.jpeg', content_type: 'image/jpeg')
 
+costume13 = Costume.create!(name: "Catwomen Mask", size: "M", price_per_day: 5.00, category: "Comic", description: "Meow Meow! With this mask you take over control!", user: lender2, address: "Auenweg, Cologne")
+costume13.photo.attach(io: File.open(Rails.root.join('app','assets','images','catmask.jpeg')), filename: 'catmask.jpeg', content_type: 'image/jpeg')
+
+costume14 = Costume.create!(name: "Black Bow Tie", size: "L", price_per_day: 6.00, category: "Gentleman", description: "Look like a real Gentleman! Cheers!", user: lender, address: "Brinken, Oslo")
+costume14.photo.attach(io: File.open(Rails.root.join('app','assets','images','bowtie.jpeg')), filename: 'bowtie.jpeg', content_type: 'image/jpeg')
+
+costume15 = Costume.create!(name: "Ghost", size: "M", price_per_day: 5.00, category: "Scary", description: "Plain white simple Ghost dress!", user: lender2, address: "Schackstrasse, Hannover")
+costume15.photo.attach(io: File.open(Rails.root.join('app','assets','images','ghost.jpeg')), filename: 'ghost.jpeg', content_type: 'image/jpeg')
+
+costume16 = Costume.create!(name: "Carneval Mask", size: "M", price_per_day: 8.00, category: "Carneval", description: "Perfect Mask for the next street carneval!", user: lender, address: "Krowia, Warsaw")
+costume16.photo.attach(io: File.open(Rails.root.join('app','assets','images','carnevalmask.jpeg')), filename: 'carnevalmask.jpeg', content_type: 'image/jpeg')
+
+costume17 = Costume.create!(name: "Brown Bear", size: "XL", price_per_day: 5.00, category: "Animals", description: "Cozy, Fuzzy brownie Bear!", user: lender2, address: "Gurkgasse, Vienna")
+costume17.photo.attach(io: File.open(Rails.root.join('app','assets','images','bear.jpeg')), filename: 'bear.jpeg', content_type: 'image/jpeg')
+
+costume18 = Costume.create!(name: "Pink Boheme Dress", size: "M", price_per_day: 10.00, category: "Princess", description: "Look like a real Lady from last century", user: lender, address: "Via Morigi, Milan")
+costume18.photo.attach(io: File.open(Rails.root.join('app','assets','images','pinkdress.jpeg')), filename: 'pinkdress.jpeg', content_type: 'image/jpeg')
+
+costume19 = Costume.create!(name: "Safety Suit", size: "L", price_per_day: 5.00, category: "Streetstyle", description: "Safety first! Protect yourself! Avoid Risks!", user: lender2, address: "Radarstrasse, Bern")
+costume19.photo.attach(io: File.open(Rails.root.join('app','assets','images','safetysuit.jpeg')), filename: 'safetysuit.jpeg', content_type: 'image/jpeg')
+
+costume20 = Costume.create!(name: "Black Balloon", size: "M", price_per_day: 22.00, category: "Weird", description: "Always wanted to be a black ball? Great! Here you go!", user: lender, address: "Englerallee, Berlin")
+costume20.photo.attach(io: File.open(Rails.root.join('app','assets','images','blackbaloon.jpeg')), filename: 'blackbaloon.jpeg', content_type: 'image/jpeg')
+
+costume21 = Costume.create!(name: "Dinosaur", size: "M", price_per_day: 5.00, category: "Animals", description: "Sweet Dino costume here! Please rent it! Need the money!", user: lender2, address: "Minerviusstrasse, Munich")
+costume21.photo.attach(io: File.open(Rails.root.join('app','assets','images','dino.jpeg')), filename: 'dino.jpeg', content_type: 'image/jpeg')
+
+costume22 = Costume.create!(name: "Wrestling Suit", size: "S", price_per_day: 6.00, category: "Fantasy", description: "I wore this almost daily in office, but now I found another costume. So now I can rent this to you! Cool, right?", user: lender, address: "Rheinstrasse, Munich")
+costume22.photo.attach(io: File.open(Rails.root.join('app','assets','images','wrestling.jpeg')), filename: 'wrestling.jpeg', content_type: 'image/jpeg')
+
+
 # Create bookings:
