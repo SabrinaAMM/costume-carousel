@@ -18,14 +18,14 @@
         <h2><%= @costume.name %> </h2>
         <hr>
 
-      <ul>
+       <ul>
         <li>Costume name: <%= @costume.name %></li>
         <li>Size: <%= @costume.size %></li>
         <li>Price per day: <%= @costume.price_per_day %> €</li>
         <li>Category: <%= @costume.category %></li>
         <li>Description: <%= @costume.description %></li>
         <li>Address: <%= @costume.address %></li>
-      </ul>
+       </ul>
 
         <br>
         <h2>Book this costume</h2>
@@ -33,14 +33,14 @@
 
         <% if @costume.user != @user %>
           <div id='booking-dates' data-unavailable="<%= @costume.unavailable_dates.to_json %>">
-          <%= simple_form_for [@costume, @booking] do |f| %>
+            <%= simple_form_for [@costume, @booking] do |f| %>
             <%= f.input :start_date, as: :string %>
             <%= f.input :end_date, as: :string %>
             <%= f.button :submit, "+ Confirm booking", class: "btn btn-success" %>
-
+          </div>
           <% end %>
         <% else %>
-        </div>
+       
           <div class="show-owner">
             <em>This costume is offered by you - you cannot book it.</em>
           </div>
