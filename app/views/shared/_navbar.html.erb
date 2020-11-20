@@ -4,7 +4,7 @@
     <%= form_tag costumes_path, method: :get do %>
       <div class= "search">
         <%= text_field_tag :query, params[:query], class: "form-control"%>
-        <%= button_tag type: 'submit', class: "btn btn-primary postfix" do %>
+        <%= button_tag type: 'submit', class: "btn btn-success postfix ml-1" do %>
           <i class="fas fa-search" aria-hidden="true"></i>
         <% end %>
       </div>
