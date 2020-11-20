@@ -31,9 +31,6 @@
         <hr>
 
         <% if @costume.user != @user %>
-          <br>
-          <h2>Book this costume</h2>
-          <hr>
           <div id='booking-dates' data-unavailable="<%= @costume.unavailable_dates.to_json %>">
           <%= simple_form_for [@costume, @booking] do |f| %>
             <%= f.input :start_date, as: :string %>
