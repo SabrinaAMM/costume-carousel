@@ -5,14 +5,25 @@
   background-size: cover;
   background-position: center;
   color: white;
+
+  h1 {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+  }
 }
 
-h1 {
-  font-family: 'Poppins', sans-serif;
+.btn-success {
+  color: white;
+
+  &:hover {
+    color: white;
+    background-color: #11ab7b;
+    border-color: #11ab7b;
+  }
 }
 
-p {
-  font-family: 'Poppins', sans-serif;
-  font-size: 20px;
-}
 
