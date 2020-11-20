@@ -4,7 +4,7 @@ class CostumesController < ApplicationController
   def index
     @costumes = policy_scope(Costume)
     if params[:query].present?
-      sql_query = "name ILIKE :query OR description ILIKE :query"
+      sql_query = "name ILIKE :query OR description ILIKE :query or category ILIKE :query"
       @costumes = Costume.where(sql_query, query: "%#{params[:query]}%")
     else
       @costumes = Costume.all
