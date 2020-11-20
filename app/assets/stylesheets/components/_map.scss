@@ -1,6 +1,8 @@
 #cardsmap {
   display: flex;
+  position: relative;
 }
+
 #cardsleft {
   flex-grow: 1;
   display: grid;
