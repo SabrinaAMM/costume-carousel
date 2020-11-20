@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
       flash.notice = "Booking created!"
       redirect_to dashboard_index_path
     else
-      render :new
+      render "costumes/show"
     end
   end
 

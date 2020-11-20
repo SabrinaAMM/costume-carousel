@@ -26,6 +26,10 @@
         <li>Address: <%= @costume.address %></li>
       </ul>
 
+        <br>
+        <h2>Book this costume</h2>
+        <hr>
+
         <% if @costume.user != @user %>
           <br>
           <h2>Book this costume</h2>
@@ -34,12 +38,13 @@
           <%= simple_form_for [@costume, @booking] do |f| %>
             <%= f.input :start_date, as: :string %>
             <%= f.input :end_date, as: :string %>
-            <%= f.button :submit, class: "btn btn-primary" %>
+            <%= f.button :submit, "+ Confirm booking", class: "btn btn-success" %>
+
           <% end %>
         <% else %>
         </div>
           <div class="show-owner">
-            <em>This costume is offered by you - you cannot rent it.</em>
+            <em>This costume is offered by you - you cannot book it.</em>
           </div>
         <% end %>
       </div>
