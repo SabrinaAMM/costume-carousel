@@ -18,33 +18,37 @@
  .btn-success {
     border-radius: 5px;
     background-color: #0C7C59;
-    border-color: #0C7C59; 
+    border-color: #0C7C59;
     justify-content: flex-end;
 }
 
 .btn-success a {
-    color:white; 
+    color:white;
 }
 
 .btn-danger {
     border-radius: 5px;
     background-color: #D64933;
-    border-color: #D64933; 
+    border-color: #D64933;
 }
 
 .btn-danger a {
-    color:white; 
+    color:white;
 }
 
 .btn-light {
     border-radius: 5px;
     background-color:#A7A7A9;
-    border-color: #A7A7A9; 
+    border-color: #A7A7A9;
     justify-content: flex-end;
-  
-  
+
+
 }
 
 .btn-light a {
-   color: white;
+  color: white;
+
+  &:hover{
+    color: black;
+  }
 }

@@ -1,16 +1,21 @@
 <%= render "shared/navbar" %>
 
-<div class="dashboard-container" >
+<div class="container" >
   <h1>Dashboard</h1>
 
-  <div class="card">
-    <h2>My Bookings</h2>
-      <% if @user.bookings.empty? %>
+  <br>
+
+  <div>
+    <h3>My Bookings</h3>
+    <hr>
+
+    <% if @user.bookings.empty? %>
       <p> You don't have any bookings. :(  <%= link_to "Have a look at our costumes!", costumes_path %> </p>
-      <% end %>
-    <ul>
+    <% end %>
+
+    <ul class="pl-0">
       <% @user.bookings.each do |booking| %>
-        <div class="card">
+        <div class="card ml-0">
           <li>
             <div class="grid-item">
               <strong>Name:</strong>  <%= link_to booking.costume.name, costume_path(booking.costume)%> |
@@ -20,7 +25,7 @@
             </div>
             <div class="item"></div>
             <div class="grid-item">
-              <button type="button" class="btn btn-danger"> <%= link_to "Cancel", booking_path(booking), method: :delete, data: { confirm: "Are you sure?"} %></button>
+              <button type="button" class="btn btn-danger"> <%= link_to "✘ Cancel", booking_path(booking), method: :delete, data: { confirm: "Are you sure?"} %></button>
             </div>
           </li>
         </div>
@@ -29,39 +34,48 @@
   </div>
 
   <% if @user.lender %>
-    <div class="card">
-      <h2>Received Bookings</h2>
-        <% if @received_bookings.empty? %>
-          <p> You have not received any bookings. :( </p>
-        <% end %>
-        <ul>
-          <% @received_bookings.each do |booking| %>
-            <div class="card">
-              <li>
+    <div>
+      <br>
+      <br>
+      <h3>Received Bookings</h3>
+      <hr>
+
+      <% if @received_bookings.empty? %>
+        <p> You have not received any bookings. :( </p>
+      <% end %>
+
+      <ul class="pl-0">
+        <% @received_bookings.each do |booking| %>
+          <div class="card ml-0">
+            <li>
+              <div class="grid-item">
+                <strong>Name:</strong> <%= link_to booking.costume.name, costume_path(booking.costume)%> |
+                <strong> Start date:</strong> <%= booking.start_date %> |
+                <strong> End date:</strong> <%= booking.end_date %> |
+                <strong> Status:</strong> <%= booking.status %>
+              </div>
+              <div class="item"></div>
+              <% if booking.status == "pending"%>
                 <div class="grid-item">
-                  <strong>Name:</strong> <%= link_to booking.costume.name, costume_path(booking.costume)%> |
-                  <strong> Start date:</strong> <%= booking.start_date %> |
-                  <strong> End date:</strong> <%= booking.end_date %> |
-                  <strong> Status:</strong> <%= booking.status %>
+                  <button type="button" class="btn btn-success"> <%= link_to "✔ Accept", booking_accept_path(booking), method: :patch,  data: { confirm: "Are you sure you want to accept this booking?" }%></button>
+                  <button type="button" class="btn btn-danger"> <%= link_to "✘ Reject", booking_reject_path(booking), method: :patch,  data: { confirm: "Are you sure you want to reject this booking?" } %></button>
                 </div>
-                <div class="item"></div>
-                <% if booking.status == "pending"%>
-                  <div class="grid-item">
-                    <button type="button" class="btn btn-success"> <%= link_to "Accept", booking_accept_path(booking), method: :patch,  data: { confirm: "Are you sure you want to accept this booking?" }%></button>
-                    <button type="button" class="btn btn-danger"> <%= link_to "Reject", booking_reject_path(booking), method: :patch,  data: { confirm: "Are you sure you want to reject this booking?" } %></button>
-                  </div>
-                <% end %>
-              </li>
-           </div>
-         <% end %>
-       </ul>
+              <% end %>
+            </li>
+         </div>
+       <% end %>
+      </ul>
     </div>
 
-    <div class="card">
-      <h2>My Costumes</h2>
-      <ul>
+    <div>
+      <br>
+      <br>
+      <h3>My Costumes</h3>
+      <hr>
+
+      <ul class="pl-0">
         <% @user.costumes.each do |costume| %>
-          <div class="card">
+          <div class="card ml-0">
             <li>
               <div class="grid-item">
                 <!-- implement small image + placeholder -->
@@ -74,13 +88,13 @@
              </div>
              <div class="item"></div>
              <div class="grid-item">
-               <button type="button" class="btn btn-light" > <%= link_to "Show", costume_path(costume) %></button>
-               <button type="button" class="btn btn-danger"><%= link_to "Delete", costume_path(costume), method: :delete, data: { confirm: "Are you sure?" } %></button>
+               <button type="button" class="btn btn-light" > <%= link_to "→ Show", costume_path(costume) %></button>
+               <button type="button" class="btn btn-danger"><%= link_to "✘ Delete", costume_path(costume), method: :delete, data: { confirm: "Are you sure?" } %></button>
              </div>
             </li>
           </div>
         <% end %>
-     </ul>
+      </ul>
     </div>
   <% end %>
 </div>
