@@ -14,12 +14,7 @@
     <%= link_to "Dashboard", dashboard_index_path, class: "my-navbar-action"%>
     <% if user_signed_in? %>
       | <span class="my-navbar-action">User: <%= current_user&.email %></span>
-      <% if current_user&.lender %>
-       | <span class="my-navbar-action">Role: Lender</span>
-      <% else %>
-       | <span class="my-navbar-action">Role: Rentee</span>
-      <% end %>
     <% end %>
-    <%= link_to "+ Create costume", new_costume_path, class: "btn btn-success ml-3" %>
+    <%= link_to "+ Add costume", new_costume_path, class: "btn btn-success ml-3" %>
   </div>
 </div>
