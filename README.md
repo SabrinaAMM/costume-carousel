@@ -7,7 +7,7 @@
 ---------
 ### What it is:
 
-Costume Carousel is a rails app for renting costumes on an AirBnB like site.It was launched as part of the Le Wagon Bootcamp. 
+Costume Carousel is a rails app for renting costumes on an AirBnB like site. It was launched as part of the Le Wagon Bootcamp. 
 
 [Have a Look here](http://costume-carousel.herokuapp.com/costumes)
 
